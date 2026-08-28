@@ -645,19 +645,114 @@ tbody tr:hover td{
      HEADER
 ======================================================= -->
 
-<div class="header">
+<!-- =======================================================
+     HOME BUTTON
+======================================================= -->
 
-   <!-- HOME BUTTON -->
 <div class="home-button-container">
 
+    <style>
+        .home-button-container {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .home-button-container .home-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+
+            padding: 8px 16px;
+
+            background: linear-gradient(
+                135deg,
+                #d4af37,
+                #f5d76e
+            );
+
+            color: #1e293b;
+
+            text-decoration: none;
+
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1px;
+
+            border: 1px solid #b8860b;
+            border-radius: 5px;
+
+            box-shadow:
+                0 3px 8px rgba(0, 0, 0, 0.18);
+
+            transition:
+                all 0.2s ease;
+        }
+
+        .home-button-container .home-icon {
+            font-size: 17px;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        .home-button-container .home-btn:hover {
+            background: linear-gradient(
+                135deg,
+                #f5d76e,
+                #d4af37
+            );
+
+            color: #000;
+
+            transform: translateY(-1px);
+
+            box-shadow:
+                0 5px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        .home-button-container .home-btn:active {
+            transform: translateY(0);
+            box-shadow:
+                0 2px 5px rgba(0, 0, 0, 0.18);
+        }
+
+        .home-button-container .home-btn:focus {
+            outline: 2px solid #d4af37;
+            outline-offset: 2px;
+        }
+
+        /* Mobile */
+        @media (max-width: 450px) {
+
+            .home-button-container {
+                margin-bottom: 8px;
+            }
+
+            .home-button-container .home-btn {
+                padding: 7px 13px;
+                font-size: 10px;
+            }
+
+            .home-button-container .home-icon {
+                font-size: 15px;
+            }
+        }
+    </style>
+
     <a
-        href="index.html"
+        href="https://ramakrishna632.github.io/Employe_Support_Sheet/"
         class="home-btn"
         title="Go to Home"
     >
         <span class="home-icon">⌂</span>
         HOME
     </a>
+
+</div>
 
 </div>
     <h3>VYSYARAJU JEWELLERS PRIVATE LIMITED</h3>
