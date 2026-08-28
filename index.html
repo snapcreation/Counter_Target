@@ -584,67 +584,20 @@ tbody tr:hover td{
         width:100%;
     }
 }
-<!-- =======================================================
+
+</style>
+
+</head>
+
+<body>
+
+
+
+
+
+    <!-- =======================================================
      HOME BUTTON
 ======================================================= -->
-
-
-    .home-button-container {
-        width: 100%;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        margin-bottom: 15px;
-    }
-
-    .home-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-
-        padding: 10px 20px;
-
-        background: linear-gradient(135deg, #d4af37, #f5d76e);
-        color: #1a1a1a;
-
-        text-decoration: none;
-        font-size: 14px;
-        font-weight: 700;
-        letter-spacing: 1px;
-
-        border: 2px solid #b8860b;
-        border-radius: 8px;
-
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.20);
-
-        transition: all 0.3s ease;
-    }
-
-    .home-icon {
-        font-size: 20px;
-        font-weight: bold;
-        line-height: 1;
-    }
-
-    .home-btn:hover {
-        background: linear-gradient(135deg, #f5d76e, #d4af37);
-        color: #000;
-
-        transform: translateY(-2px);
-
-        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.30);
-    }
-
-    .home-btn:active {
-        transform: translateY(0);
-    }
-
-
-
-<!-- =======================================================
-     HEADER
-======================================================= -->
-
 <!-- =======================================================
      HOME BUTTON
 ======================================================= -->
@@ -744,7 +697,7 @@ tbody tr:hover td{
     </style>
 
     <a
-        href="https://ramakrishna632.github.io/Counter_Target/"
+        href="https://ramakrishna632.github.io/Employe_Support_Sheet/"
         class="home-btn"
         title="Go to Home"
     >
@@ -754,7 +707,15 @@ tbody tr:hover td{
 
 </div>
 
-</div>
+
+<div class="container">
+
+<!-- =======================================================
+     HEADER
+======================================================= -->
+
+<div class="header">
+
     <h3>VYSYARAJU JEWELLERS PRIVATE LIMITED</h3>
 
     <p>
@@ -762,7 +723,6 @@ tbody tr:hover td{
     </p>
 
 </div>
-
 
 <!-- =======================================================
      SUMMARY
@@ -817,15 +777,8 @@ tbody tr:hover td{
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         Employee / Manager Details
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         Target
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         Cross Promotion
 
     </div>
@@ -1256,11 +1209,8 @@ tbody tr:hover td{
    GOOGLE APPS SCRIPT WEB APP URL
 ========================================================= */
 
-const EMPLOYEE_DATABASE_URL =
-    "https://script.google.com/macros/s/AKfycbyDaIBsmy_Ndq3FFA1VHDg1ZlsHpcr2mrbMjIVypOTGR6eT8isDc7SbxV9Izmj14EYF/exec";
-
 const GOOGLE_SCRIPT_URL =
-    "https://script.google.com/macros/s/AKfycbyGaa6hTYMvG4iSdfzJV9KPcVMdZHNiwpGePDgAtSDUQak9IKx3r2lAw9Hl9HZhTn4K/exec";
+    "https://script.google.com/macros/s/AKfycbwULvqNqjnPWQSIyVVOIi2Yu-d1p4BAoYyxwq1vztnK_qclif8iupZ6qYobqnZO3xVO/exec";
 
 
 /* =========================================================
@@ -1665,7 +1615,7 @@ async function loadEmployeeMaster(){
 
         const response =
             await fetch(
-                EMPLOYEE_DATABASE_URL +
+                GOOGLE_SCRIPT_URL +
                 "?action=employees&t=" +
                 Date.now()
             );
@@ -3246,61 +3196,52 @@ async function saveAll(){
 
     try{
 
-        const recordsToSave = records.map(function(record){
-            return {
-                date: record.date || "",
-                day: record.day || "",
-                month: record.month || "",
-                cc: record.cc || "",
-                empId: record.empId || "",
-                empName: record.empName || "",
-                designation: record.designation || "",
-                mgrId: record.mgrId || "",
-                managerName: record.managerName || "",
-                counter: record.counter || "",
-                metal: record.metal === "" ? "" : record.metal,
-                jpoDS: record.jpoDS === "" ? "" : record.jpoDS,
-                jpoValue: record.jpoValue === "" ? "" : record.jpoValue,
-                diamond: record.diamond === "" ? "" : record.diamond,
-                silver: record.silver === "" ? "" : record.silver,
-                remarks: record.remarks || ""
-            };
-        });
-
         await fetch(
             GOOGLE_SCRIPT_URL,
             {
+
                 method:"POST",
+
                 mode:"no-cors",
+
                 headers:{
-                    "Content-Type":"text/plain;charset=utf-8"
+                    "Content-Type":
+                        "text/plain;charset=utf-8"
                 },
-                body:JSON.stringify({
-                    records:recordsToSave
-                })
+
+                body:
+                    JSON.stringify({
+                        records:records
+                    })
+
             }
         );
 
+
         showMessage(
             records.length +
-            " record(s) sent successfully to the Untitled Spreadsheet."
+            " record(s) saved successfully to Google Sheet."
         );
 
+
         records.length = 0;
+
         renderRecords();
+
         updateTotals();
+
         clearForm();
 
     }
     catch(error){
 
         console.error(
-            "Untitled Spreadsheet Save Error:",
             error
         );
 
+
         showMessage(
-            "Unable to send records to the Untitled Spreadsheet. Please check the Apps Script Web App deployment.",
+            "Unable to connect to Google Apps Script. Check the Web App deployment.",
             true
         );
 
@@ -3308,6 +3249,7 @@ async function saveAll(){
     finally{
 
         saveButton.disabled = false;
+
         saveButton.textContent =
             "SAVE ALL & SEND EMAIL";
 
